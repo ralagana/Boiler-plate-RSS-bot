@@ -3,7 +3,7 @@
 
 ## RSS Bot for Webex
 
-The RSS bot for Webex is a parser bot designed to enrich the data provided from any compatible RSS Feeds, and update a Webex space of your choosing whenever there is a new feed.
+The RSS bot for Webex is a boilerplate parser bot designed to digest the data provided from any compatible RSS Feeds, and update a Webex space of your choosing whenever there is a new feed.
 
 **Note:** No initial messages will be published to the spaces when app is loaded. Only when a message is received on the RSS Feed it will be published into the respective space.
 
@@ -12,6 +12,7 @@ The RSS bot for Webex is a parser bot designed to enrich the data provided from 
 2. Create Spaces for Output Messages in Webex App (or skip to step 3 if you have a space/room already)
 3. Obtain RoomId for the space/room
 4. Add Bot created in Step 1 to your space.
+5. Create a .env file and add the required variables below.
 
 ## Deployment (Local)
 
@@ -21,6 +22,7 @@ The RSS bot for Webex is a parser bot designed to enrich the data provided from 
 - Recommend adding `CONSOLE_LEVEL=debug` during initial testing
 4. Start the integration using `npm run start`
 5. Review the console logs to confirm no errors encountered
+6. As a suggestion for your Tests, you can use this sample feed https://lorem-rss.herokuapp.com/feed?unit=second&interval=30. It creates a new feed every 30 seconds.
 
 ## Deployment (Docker)
 
