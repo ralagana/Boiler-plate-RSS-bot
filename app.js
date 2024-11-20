@@ -1,5 +1,4 @@
 const { bootstrap } = require('global-agent');
-// eslint-disable-next-line object-curly-newline
 const { cleanEnv, str, num } = require('envalid');
 const Watcher = require('./lib/feedWatcher');
 const logger = require('./src/logger')('app');
@@ -15,7 +14,7 @@ if (process.env.GLOBAL_AGENT_HTTP_PROXY) {
 const env = cleanEnv(process.env, {
   RSS_INTERVAL: num({ default: 5 }),
   FEED_ROOM_ID: str(),
-  RSS_FEED_URL: str({ default: true })
+  RSS_FEED_URL: str(),
 });
 
 const parserService = require('./src/parserService');
@@ -23,7 +22,6 @@ const parserService = require('./src/parserService');
 // Load RSS Watcher Instances
 const interval = env.RSS_INTERVAL;
 const newFeedWatcher = new Watcher(process.env.RSS_FEED_URL, interval);
-
 
 // Process New Feed
 newFeedWatcher.on('new entries', (entries) => {
@@ -56,7 +54,7 @@ async function init() {
     logger.error('ERROR: Bot is not a member of the RSS Feed Room!');
     process.exit(2);
   }
-  
+
   newFeedWatcher.start();
   logger.info('Startup Complete!');
 }
