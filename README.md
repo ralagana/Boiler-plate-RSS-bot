@@ -34,7 +34,7 @@ The simplest deployment method is using [Docker](https://docs.docker.com/engine/
 3. - Use the prebuilt image available on Docker Hub (default in docker-compose.yml)
    - Build local image - Uncomment build and comment image line in docker-compose.yml
 4. Provision and start the service using `docker-compose up -d`
-5. Review the console logs using `docker logs webex-rss -f` (assuming you are using the default container name)
+5. Review the console logs using `docker logs rss-service -f` (assuming you are using the default container name)
 
 ### Environmental Variables
 
@@ -48,7 +48,7 @@ These variables can be individually defined in Docker, or loaded as an `.env` fi
 | RSS_INTERVAL | Optional | `5` | Interval for RSS Checks (Seconds)
 | **Logging Settings**
 | CONSOLE_LEVEL | no | bool | `info` | Logging level exposed to console
-| APP_NAME | no | string | `webex-rss` | App Name used for logging service
+| APP_NAME | no | string | `rss-service` | App Name used for logging service
 | SYSLOG_ENABLED | no | bool | `false` | Enable external syslog server
 | SYSLOG_HOST | no | string | `syslog` | Destination host for syslog server
 | SYSLOG_PORT | no | num | `514` | Destination port for syslog server
