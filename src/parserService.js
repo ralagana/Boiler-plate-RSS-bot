@@ -38,7 +38,7 @@ function parserService() {
     output.link = item.link;
 
     //message that the bot will send to space
-    let html = `<h4><a href="${output.link}">${output.title}</a></h4><br>${output.description}`;
+    let html = `<h4><a href="${output.link}">${output.title}</a></h4><p>${output.description}<p>`;
 
     await httpService.postMessage(env.TOKEN, env.FEED_ROOM_ID, html);
     const jsonOutput = JSON.stringify(output);
