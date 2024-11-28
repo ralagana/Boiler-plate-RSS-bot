@@ -37,11 +37,8 @@ function parserService() {
     output.guid = item.guid.replace(/\r\n/g, '');
     output.link = item.link;
 
-    let html = '<h2>This is a sample RSS Feed item. It includes the item\'s Title, Link and Description.</h2>';
-    html += `<blockquote class="info"><strong>RSS Feed Title:</strong> ${output.title}`;
-    html += `<br><br><strong>Link: </strong>${output.link}`;
-    html += `<br><br><strong>Description: </strong>${output.description}</blockquote>`;
-    html += 'You can check out this Bot\'s code here: https://github.com';
+    //message that the bot will send to space
+    let html = `<h4><a href="${output.link}">${output.title}</a></h4><p>${output.description}<p>`;
 
     await httpService.postMessage(env.TOKEN, env.FEED_ROOM_ID, html);
     const jsonOutput = JSON.stringify(output);
